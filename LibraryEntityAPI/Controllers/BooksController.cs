@@ -18,11 +18,18 @@ namespace LibraryEntityAPI.Controllers
     {
         private LibraryContext db = new LibraryContext();
 
-        // GET: api/Books
-        public IEnumerable<Books> GetBooks()
+        private BookServices bs = new BookServices();
+
+        public IQueryable<Books> GetBooks()
         {
-            return new BookServices().GetAllBooks();
+            return db.Books;
         }
+
+        // GET: api/Books
+        //public IEnumerable<Books> GetBooks()
+        //{
+        //    return bs.GetAllBooks();
+        //}
 
         // GET: api/Books/5
         [ResponseType(typeof(Books))]
@@ -36,6 +43,8 @@ namespace LibraryEntityAPI.Controllers
 
             return Ok(books);
         }
+
+
 
         // PUT: api/Books/5
         [ResponseType(typeof(void))]

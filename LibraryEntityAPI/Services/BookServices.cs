@@ -17,5 +17,10 @@ namespace LibraryEntityAPI.Services
             return list;
         }
 
+        public void CheckOutBook (int id)
+        {
+
+        }
+
     }
 }
